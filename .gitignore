@@ -1,0 +1,13 @@
+.idea
+*.log
+favicon.ico
+thinkphp
+openv
+.env
+.DS_Store
+.vscode
+thinkphp
+public/*
+framework
+tests/
+public/uploads

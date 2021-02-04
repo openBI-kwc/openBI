@@ -759,7 +759,7 @@ class User extends UserModel
     }
     protected function accessRecord()
     {
-        $name = $_SERVER['SERVER_NAME'];
+        $name = $_SERVER['HTTP_ORIGIN'] ?? $_SERVER['HTTP_REFERER'];
         return curl_request('http://www.openbi.com.cn/api/updatav/service?server_name='.$name, ['sec' => 1]);
     }
     public function windex_userRouting($uid)

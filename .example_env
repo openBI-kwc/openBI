@@ -1,0 +1,16 @@
+[config]
+    app_debug = true
+    app_trace = true
+    static_config_path = public/openv/static/config.json
+[database]
+    hostname = 127.0.0.1
+    database = openbi
+    username = root
+    password =  123456
+    hostport =  3306
+    charset =  utf8mb4
+    prefix =  up_
+    debug =  false
+[redis]
+    host = 127.0.0.1
+    port = 6379
