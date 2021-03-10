@@ -1,16 +1,16 @@
 /*
 Navicat MySQL Data Transfer
 
-Source Server         : v2_kwcdev_cn
-Source Server Version : 50650
+Source Server         : 106.12.139.220
+Source Server Version : 50733
 Source Host           : localhost:3306
-Source Database       : v2_kwcdev_cn
+Source Database       : sql127_0_0_1
 
 Target Server Type    : MYSQL
-Target Server Version : 50650
+Target Server Version : 50733
 File Encoding         : 65001
 
-Date: 2021-02-04 16:49:44
+Date: 2021-03-10 10:41:42
 */
 
 SET FOREIGN_KEY_CHECKS=0;
@@ -958,7 +958,7 @@ CREATE TABLE `up_token` (
   `tokentime` int(11) DEFAULT NULL COMMENT 'token过期时间',
   `few` int(2) DEFAULT NULL COMMENT '第几个登录的',
   PRIMARY KEY (`tid`) USING BTREE
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 ROW_FORMAT=COMPACT COMMENT='用户登录记录表';
+) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8 ROW_FORMAT=COMPACT COMMENT='用户登录记录表';
 
 -- ----------------------------
 -- Records of up_token
@@ -1062,7 +1062,7 @@ CREATE TABLE `up_user` (
 -- ----------------------------
 -- Records of up_user
 -- ----------------------------
-INSERT INTO `up_user` VALUES ('1', 'admin', '7732876', 'd2fb0527777f9b2614c4275b78908938', '12323SW@qq.com', 'admin', '1554392837', '45', '1', '0', '0', '0', '1612423744', '0', '7200', '5', '15323243242', '/uploads/staticimg/perview_avatar_2.png', '北京海淀区', '1,2,3,2,3,7,11,12,13,17,18,19,20,21,22,23,2', null);
+INSERT INTO `up_user` VALUES ('1', 'admin', '7732876', 'd2fb0527777f9b2614c4275b78908938', '12323SW@qq.com', 'admin', '1554392837', '0', '1', '0', '0', '0', '1615343570', '0', '7200', '5', '15323243242', '/uploads/staticimg/perview_avatar_2.png', '北京海淀区', '1,2,3,2,3,7,11,12,13,17,18,19,20,21,22,23,2', null);
 
 -- ----------------------------
 -- Table structure for up_user_role
@@ -1097,7 +1097,7 @@ CREATE TABLE `up_userlog` (
   `status` tinyint(2) NOT NULL DEFAULT '1',
   `rid` int(11) NOT NULL COMMENT '角色id',
   PRIMARY KEY (`lid`) USING BTREE
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 ROW_FORMAT=COMPACT COMMENT='用户日志';
+) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8 ROW_FORMAT=COMPACT COMMENT='用户日志';
 
 -- ----------------------------
 -- Records of up_userlog
