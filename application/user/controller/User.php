@@ -374,11 +374,11 @@ class User extends UserModel
         $uid = $getUid[0]['uid'];
 
         //查询用户是否多人登录
-        $userOnline = $this->UserModel->getMessge('user',['uid' => $uid]);
-        if($userOnline[0]['online'] >1 ) {
-            $arr  = get_status(1,'多个用户登录' , 1007);
-            return $arr;
-        }
+        // $userOnline = $this->UserModel->getMessge('user',['uid' => $uid]);
+        // if($userOnline[0]['online'] >1 ) {
+        //     $arr  = get_status(1,'多个用户登录' , 1007);
+        //     return $arr;
+        // }
         // 验证账号密码是否为空
         $validate = new Validate([
            'password' => 'require',
