@@ -35,7 +35,7 @@
 
 - 默认账号密码 admin / admin
 
-- 请取消禁用函数 putenv
+- 请取消禁用函数 putenv (php.ini中disable_function)
 
 ## 安装方式二
 
@@ -54,7 +54,9 @@
 - redis
 - MongoDB
 ## 系统支持
+
 稳定支持Linux CentOS系统 
+
 ## 示例
 
 - ![http://www.kwcnet.com/assets/img/huabei1.png](http://www.kwcnet.com/assets/img/huabei1.png)
