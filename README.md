@@ -35,6 +35,8 @@
 
 - 默认账号密码 admin / admin
 
+- 请取消禁用函数 putenv
+
 ## 安装方式二
 
 - 使用宝塔面板一键部署安装
@@ -61,16 +63,6 @@
 - ![http://www.kwcnet.com/assets/img/lvyou.png](http://www.kwcnet.com/assets/img/lvyou.png)
 - ![http://www.kwcnet.com/Images/e03eed0554c8b59707288bd4983f9518.jpg](http://www.kwcnet.com/Images/e03eed0554c8b59707288bd4983f9518.jpg)
 - ![http://www.kwcnet.com/Images/1fb4de3967a2992258e05edd7b5f0127.png](http://www.kwcnet.com/Images/1fb4de3967a2992258e05edd7b5f0127.png)
-
-## 作者
-
-- [crazyYG](https://github.com/crazyYG)
-- [yangyfeng](https://github.com/yangyfeng)
-- [likego555](https://github.com/likego555)
-- [fulongli](https://github.com/fulongli)
-- [kaiwenli](https://github.com/kaiwenli)
-- [lius0815](https://github.com/lius0815)
-- [qq252208535](https://github.com/qq252208535)
 
 ## License
 
