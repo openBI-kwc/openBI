@@ -126,7 +126,7 @@ class Upload
         $path = $this->pluginDir.$filename;
         $pathTmp = $this->pluginDir.$filenameTmp;
         // 已存在则更新
-        if (file_exists($path) && is_dir($path)) return $path;
+        if (file_exists($path) && is_dir($path)) $this->removeDir($path);
         $zip = new \ZipArchive;
         if ($zip->open($file) === TRUE) {
             $zip->extractTo($path);

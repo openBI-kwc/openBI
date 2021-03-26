@@ -1967,22 +1967,23 @@ class Chartdata
     }
     public static function cloudComponent(array $data)
     {
-        $return_data = [];
-        foreach ($data as $key => $value) {
-            if(!empty($value['x'])){
-                $tmp_data['x'] = $value['x'];
-            }else{
-                $tmp_data['x'] = 0;
-            }
+        return $data;
+        // $return_data = [];
+        // foreach ($data as $key => $value) {
+        //     if(!empty($value['x'])){
+        //         $tmp_data['x'] = $value['x'];
+        //     }else{
+        //         $tmp_data['x'] = 0;
+        //     }
 
-            if(!empty($value['y'])){
-                $tmp_data['y'] = $value['y'];
-            }else{
-                $tmp_data['y'] = 0;
-            }
-            $return_data[$key] = $tmp_data;
-        }
-        return $return_data;
+        //     if(!empty($value['y'])){
+        //         $tmp_data['y'] = $value['y'];
+        //     }else{
+        //         $tmp_data['y'] = 0;
+        //     }
+        //     $return_data[$key] = $tmp_data;
+        // }
+        // return $return_data;
     }
     
      
