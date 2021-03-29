@@ -54,7 +54,7 @@ class Index
             return get_status(1 , '卸载失败'); 
         }
         foreach ($info as $value) {
-            @unlink($value['pluginPath']);
+            removeDir(self::$pluginDir . $value['dir']);
         }
         return get_status(0 , '已卸载'); 
     }

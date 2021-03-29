@@ -126,7 +126,7 @@ class Upload
         $path = $this->pluginDir.$filename;
         $pathTmp = $this->pluginDir.$filenameTmp;
         // 已存在则更新
-        if (file_exists($path) && is_dir($path)) $this->removeDir($path);
+        if (file_exists($path) && is_dir($path)) removeDir($path);
         $zip = new \ZipArchive;
         if ($zip->open($file) === TRUE) {
             $zip->extractTo($path);
@@ -146,19 +146,5 @@ class Upload
         } else {
             return false;
         }
-    }
-    public function removeDir($dirName) {
-        if(!is_dir($dirName)){
-            return false;
-        }
-        $handle = @opendir($dirName);
-        while (($file = @readdir($handle)) !== false) {
-            if($file != '.' && $file != '..') {
-                $dir = $dirName.'/'.$file;
-                is_dir($dir)?$this->removeDir($dir):@unlink($dir);
-            }
-        }
-        closedir($handle);
-        return rmdir($dirName); 
     }
 }
