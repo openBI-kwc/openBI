@@ -260,7 +260,7 @@ class Setsystem extends Base
       //获取图片的路径 
       $newpath =  '/uploads/' .$info->getSaveName();
       //保存到data数组
-      $data['url'] = $newpath;
+      $data['url'] = str_replace('\\', '/', $newpath);
       //路径存入data数组
       $data['thumb'] = '/uploads/thumb/'.date('Ymd').'/'.$info->getFilename();
         //存入数据库
@@ -332,7 +332,7 @@ class Setsystem extends Base
           $data['waterurl'] = '/uploads/water/'.date('Ymd').'/'.$info->getFilename();
            //数据库严格模式
           $data['thumb'] = '/uploads/thumb/'.date('Ymd').'/'.$info->getFilename();
-          $data['url'] = '/uploads/' .$info->getSaveName();;
+          $data['url'] = str_replace('\\', '/', '/uploads/' . $info->getSaveName());
         }else{
           //获取图片的路径 
           $newpath = str_replace('\\', '/', '/uploads/' . $info->getSaveName());
@@ -548,6 +548,7 @@ class Setsystem extends Base
       $filename = $db->getFile();
       $data['dataname'] = $filename['filename'];
       $data['backtime'] = time();
+      $data['link'] = '';
       $variable = Db::name('variable')->where('id',1)->update(['variable'=>0]);
       if ($rel === false) {
         return get_status(1,'数据库备份失败',5007);
