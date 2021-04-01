@@ -1,0 +1,41 @@
+version: '3'
+
+services:
+  openbi:
+    restart: always
+    depends_on:
+      - mysql
+      - redis
+    build: ./docker
+    volumes:
+      - ./:/data
+    ports:
+      - 80:80
+    ulimits:
+      nofile:
+        soft: 262144
+        hard: 262144
+
+  mysql:
+    image: mysql:8
+    restart: always
+    environment:
+      MYSQL_ROOT_PASSWORD: root
+    volumes:
+      - ./data/mysql:/var/lib/mysql
+    command: --max_connections=512 --explicit_defaults_for_timestamp=1 --default_authentication_plugin=mysql_native_password
+      --tmp_table_size=18M --thread_cache_size=8 --myisam_max_sort_file_size=1G --server-id=1 --log-bin=/var/lib/mysql/mysql-bin.log --gtid-mode=ON --enforce-gtid-consistency
+      --myisam_sort_buffer_size=35M --key_buffer_size=25M --read_buffer_size=64K --read_rnd_buffer_size=256K --sort_buffer_size=256K
+      --max_allowed_packet=128M --innodb_flush_log_at_trx_commit=1 --innodb_log_buffer_size=1M --sql_mode='STRICT_TRANS_TABLES,NO_ZERO_IN_DATE,NO_ZERO_DATE,ERROR_FOR_DIVISION_BY_ZERO,NO_ENGINE_SUBSTITUTION'
+      --innodb_buffer_pool_size=47M --innodb_log_file_size=24M --innodb_thread_concurrency=8 --default-time-zone="+8:00"
+    ports:
+      - 3306:3306
+
+  redis:
+    image: redis:alpine
+    restart: always
+    volumes:
+      - ./data:/data
+    ports:
+      - 6379:6379
+
