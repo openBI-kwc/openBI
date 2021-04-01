@@ -2891,14 +2891,14 @@ class Screen extends Addons
         //压缩包文件路径
         $Yurl = ROOT_PATH.'public/dist.zip';
         //离线部署前端包路径
-        $Burl = ROOT_PATH .'public/dist';
+        $Burl = ROOT_PATH .'public/offline';
         //检测dist压缩包是否存在
         if(is_file($Yurl)){
             unlink($Yurl);
         }
         //检测是否有api文件
-        if(is_file(ROOT_PATH.'public/dist/static/api.json')){
-            unlink(ROOT_PATH.'public/dist/static/api.json');
+        if(is_file(ROOT_PATH.'public/offline/static/api.json')){
+            unlink(ROOT_PATH.'public/offline/static/api.json');
         }
         //检测是否有视频资源
         if(file_exists($Burl.'/video')){
@@ -2979,10 +2979,10 @@ class Screen extends Addons
         }
 
         //将json数据写入json文件
-        $data = file_put_contents('dist/static/screenoption.json',json_encode($post['data'],JSON_UNESCAPED_UNICODE));
+        $data = file_put_contents('offline/static/screenoption.json',json_encode($post['data'],JSON_UNESCAPED_UNICODE));
         //将图表对应api接口写入json文件
         if(isset($api)){
-            $apifile = file_put_contents('dist/static/api.json',json_encode($api,JSON_UNESCAPED_UNICODE));
+            $apifile = file_put_contents('offline/static/api.json',json_encode($api,JSON_UNESCAPED_UNICODE));
         }
         if(!$data){
             return get_status(1,'导出文件有误',5010);
@@ -3139,7 +3139,7 @@ class Screen extends Addons
     //生成文件名
     $filename = time() . rand(1000,10000) . $suffix;
     //将图片写入文件夹
-    file_put_contents(ROOT_PATH.'public/openv/dist/video/'.$filename,$content);
+    file_put_contents(ROOT_PATH.'public/offline/video/'.$filename,$content);
     //获取文件路径
     return 'video/'.$filename;
   }
