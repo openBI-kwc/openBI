@@ -41,6 +41,32 @@
 
 - 使用宝塔面板一键部署安装
 
+## 安装方式三
+
+- 从 [releases](https://github.com/openBI-kwc/openBI/releases/) 下载部署包openbi.zip (适用于**版本1.0.5**及以上)
+
+- 解压
+
+- 安装docker,docker-compose后运行  
+
+  ```bash
+  docker-compose up
+  # 后台运行
+  docker-compose up -d
+  ```
+
+- 注意默认端口为80、3306、6379、若有端口占用，请修改docker-compoe.yml相关端口
+
+- 默认数据库mysql的密码为root
+
+- 将openbi.sql导入数据库
+
+- 进入到openbi解压目录 找到.example_env 并复制为 .env 
+
+- 修改 .env 相关数据库配置
+
+- 默认访问地址：[ip:80]() 账号密码（默认账号密码 admin / admin）
+
 ## 数据源支持
 
 - excel/csv
