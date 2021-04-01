@@ -3007,7 +3007,7 @@ class Screen extends Addons
     {
         //定义导出图片路径
         $zipUrl =  DS . 'image';
-        
+        $fileurl = trim($fileurl, '/');
         $zip = new \ZipArchive(); 
         $zip->open('dist.zip',\ZipArchive::CREATE);   //打开压缩包
         //根据路径截取文件名
