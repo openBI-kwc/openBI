@@ -1,0 +1,4 @@
+#!/bin/sh
+mkdir -p /run/nginx && nginx -c /etc/nginx/nginx.conf -t && \
+  nginx -c /etc/nginx/nginx.conf -g "daemon off;"
+
