@@ -7,7 +7,6 @@ openv
 .DS_Store
 .vscode
 thinkphp
-public/*
 framework
 tests/
 public/uploads

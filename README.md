@@ -67,6 +67,11 @@
 
 - 默认访问地址：[ip:80]() 账号密码（默认账号密码 admin / admin）
 
+## 其他文档
+
+- FAQ [doc/FAQ.md](doc/FAQ.md)
+- 插件开发[doc/plugin.md](doc/plugin.md)
+
 ## 数据源支持
 
 - excel/csv
