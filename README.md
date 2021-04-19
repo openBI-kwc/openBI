@@ -70,6 +70,7 @@
 ## 其他文档
 
 - FAQ [doc/FAQ.md](doc/FAQ.md)
+
 - 插件开发[doc/plugin.md](doc/plugin.md)
 
 ## 数据源支持

@@ -71,6 +71,7 @@ class ChartProcess
         foreach ($realTimeData as &$value) {
             foreach ($maps as $newKey => $oldKey) {
                 if (!isset($value[$oldKey])) return false;
+                if ($oldKey == $newKey) continue;
                 $value[$newKey] = $value[$oldKey];
                 unset($value[$oldKey]);
             }
