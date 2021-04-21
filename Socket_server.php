@@ -10,8 +10,8 @@ $ws->on('open' , function ($ws , $request){
 
 
 $ws->on('message', function( $ws , $request ) {
-	if($request->data == "Are you still alive") {
-             $ws->push($request->fd, "I am still alive");
+	if($request->data == "ping") {
+             $ws->push($request->fd, "pong");
         }else {
 			go(function () use ($ws , $request){
 				$GLOBALS[$request->fd] = swoole_timer_tick(1000, function ($timer_id) use ($ws , $request){
