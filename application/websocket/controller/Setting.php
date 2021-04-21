@@ -67,24 +67,24 @@ class Setting
         try {
             $commandStr = 'cd ' . ROOT_PATH . ' & nohup ' . $phpPath . ' ' . ROOT_PATH . 'Socket_server.php >' . ROOT_PATH . 'socket.log 2>&1& echo $! >' . ROOT_PATH . 'socket.pid';
             exec($commandStr);
-            return [1, '开启socket成功'];
+            return [0, '开启socket成功'];
         } catch (\Exception $e) {
-            return [0, '启动失败，请检查php路径并放开exce函数（此功能不支持winserver）'];
+            return [1, '启动失败，请检查php路径并放开exce函数（此功能不支持winserver）'];
         }
     }
 
     public function stopSocket()
     {
         if (!file_exists(ROOT_PATH . 'socket.pid')) {
-            return [1, '修改成功'];
+            return [0, '修改成功'];
         }
         try {
             $commandStr = 'kill `cat ' . ROOT_PATH . 'socket.pid`';
             exec($commandStr);
             @unlink(ROOT_PATH . 'socket.pid');
-            return [1, '关闭socket成功'];
+            return [0, '关闭socket成功'];
         } catch (\Exception $e) {
-            return [0, '关闭socket失败'];
+            return [1, '关闭socket失败'];
         }
     }
 }
