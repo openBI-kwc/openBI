@@ -453,7 +453,7 @@ CREATE TABLE `up_permission` (
   `identification` varchar(255) NOT NULL DEFAULT ' ' COMMENT '权限标识',
   `remarks` varchar(255) NOT NULL DEFAULT ' ' COMMENT '备注',
   PRIMARY KEY (`pid`) USING BTREE
-) ENGINE=InnoDB AUTO_INCREMENT=179 DEFAULT CHARSET=utf8 COMMENT='权限表';
+) ENGINE=InnoDB AUTO_INCREMENT=180 DEFAULT CHARSET=utf8 COMMENT='权限表';
 
 -- ----------------------------
 -- Records of up_permission
@@ -579,6 +579,7 @@ INSERT INTO `up_permission` VALUES ('174', '导出本地部署', '2', 'index', '
 INSERT INTO `up_permission` VALUES ('176', '保存为模板', '2', 'index', 'index', 'savetmp', '3', '', ' ', ' ');
 INSERT INTO `up_permission` VALUES ('177', '分享模板', '2', 'index', 'template', 'shareTemplate', '3', '', ' ', ' ');
 INSERT INTO `up_permission` VALUES ('178', '恢复默认模板', '2', 'index', 'template', 'resetTemplate', '3', '', ' ', ' ');
+INSERT INTO `up_permission` VALUES ('179', 'websocket设置', '1', 'websocket', 'index', 'index', '13', 'websocket', '', 'websocket设置');
 
 -- ----------------------------
 -- Table structure for up_plugins
@@ -718,7 +719,7 @@ CREATE TABLE `up_role_permission` (
 -- ----------------------------
 -- Records of up_role_permission
 -- ----------------------------
-INSERT INTO `up_role_permission` VALUES ('1', '1', '1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23,24,25,26,27,28,29,30,31,32,33,34,35,36,37,38,39,40,41,42,43,44,45,109,110,112,111,147,148');
+INSERT INTO `up_role_permission` VALUES ('1', '1', '1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23,24,25,26,27,28,29,30,31,32,33,34,35,36,37,38,39,40,41,42,43,44,45,109,110,112,111,147,148,179');
 INSERT INTO `up_role_permission` VALUES ('30', '30', '1,2,4,5,6,19,20,21,22,23,27,28,29,30,31,32,33,34,35,36,37,38,39,40,41,45,46,47,48,49,50,51,52,53,54,55,56,57,58,59,60,61,62,63,64,65,66,67,68,69,70,71,72,73,74,75,76,77,78,79,81,82,83,84,85,86,87,88,89,90,91,92,93,94,95,96,97,98,99,100,101,102,103,145,146,147,148,149,150,151,152,153,154,159,160,161,163,164,165,166,167,169,170,172,173,174,176,177,178,13,18');
 
 -- ----------------------------
@@ -897,13 +898,10 @@ CREATE TABLE `up_system` (
 -- ----------------------------
 DROP TABLE IF EXISTS `up_systemset`;
 CREATE TABLE `up_systemset` (
-  `sysid` int(11) NOT NULL AUTO_INCREMENT COMMENT '系统id',
-  `sysname` varchar(100) NOT NULL COMMENT '系统名称',
-  `website` varchar(100) NOT NULL COMMENT '网址',
-  `port` int(8) NOT NULL COMMENT '端口',
-  `logopath` varchar(100) NOT NULL COMMENT 'logo路径',
-  `publish` tinyint(4) NOT NULL COMMENT '是否发布（1：发布，0：不发布）',
-  PRIMARY KEY (`sysid`) USING BTREE
+  `id` int(11) NOT NULL AUTO_INCREMENT COMMENT 'id',
+  `config` varchar(255) NOT NULL COMMENT 'php路径',
+  `type` varchar(255) NOT NULL COMMENT '是否开启0 关闭 1 开启',
+  PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 ROW_FORMAT=COMPACT COMMENT='系统设置';
 
 -- ----------------------------
@@ -944,7 +942,7 @@ CREATE TABLE `up_token` (
   `tokentime` int(11) DEFAULT NULL COMMENT 'token过期时间',
   `few` int(2) DEFAULT NULL COMMENT '第几个登录的',
   PRIMARY KEY (`tid`) USING BTREE
-) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8 ROW_FORMAT=COMPACT COMMENT='用户登录记录表';
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 ROW_FORMAT=COMPACT COMMENT='用户登录记录表';
 
 -- ----------------------------
 -- Records of up_token
@@ -1048,7 +1046,7 @@ CREATE TABLE `up_user` (
 -- ----------------------------
 -- Records of up_user
 -- ----------------------------
-INSERT INTO `up_user` VALUES ('1', 'admin', '7732876', 'd2fb0527777f9b2614c4275b78908938', '12323SW@qq.com', 'admin', '1554392837', '0', '1', '0', '0', '0', '1615343570', '0', '7200', '5', '15323243242', '/uploads/staticimg/perview_avatar_2.png', '北京海淀区', '1,2,3,2,3,7,11,12,13,17,18,19,20,21,22,23,2', null);
+INSERT INTO `up_user` VALUES ('1', 'admin', '7732876', 'd2fb0527777f9b2614c4275b78908938', '12323SW@qq.com', 'admin', '1554392837', '0', '1', '0', '0', '0', '1619055255', '0', '7200', '5', '15323243242', '/uploads/staticimg/perview_avatar_2.png', '北京海淀区', '1,2,3,2,3,7,11,12,13,17,18,19,20,21,22,23,2', null);
 
 -- ----------------------------
 -- Table structure for up_user_role
@@ -1083,7 +1081,7 @@ CREATE TABLE `up_userlog` (
   `status` tinyint(2) NOT NULL DEFAULT '1',
   `rid` int(11) NOT NULL COMMENT '角色id',
   PRIMARY KEY (`lid`) USING BTREE
-) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8 ROW_FORMAT=COMPACT COMMENT='用户日志';
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 ROW_FORMAT=COMPACT COMMENT='用户日志';
 
 -- ----------------------------
 -- Records of up_userlog
