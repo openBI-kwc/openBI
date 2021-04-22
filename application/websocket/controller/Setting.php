@@ -37,6 +37,7 @@ class Setting
         //转成数组
         $arr = json_decode($file, 1);
         $arr['setting']['realData']['url'] = $post['url'];
+        $arr['setting']['server'] = $_SERVER['REQUEST_SCHEME']. '://' .$_SERVER['SERVER_NAME'] . ':' . $_SERVER['SERVER_PORT'];
         $jsondata = json_encode($arr, JSON_UNESCAPED_UNICODE|JSON_PRETTY_PRINT);
         $data = file_put_contents($path, $jsondata, FILE_USE_INCLUDE_PATH);
         $result = Db::name('systemset')->where('type', 'socket')->find();
