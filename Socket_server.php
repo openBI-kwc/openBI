@@ -1,11 +1,10 @@
 <?php
 
-Env::loadFile('.env');
-$staticPath =  Env::get('config.static_config_path');
+Env::loadFile(__DIR__ . '/.env');
+$staticPath =  __DIR__ . '/' . Env::get('config.static_config_path');
 $staticConfig = file_get_contents($staticPath);
 $configArr = json_decode($staticConfig, true);
 $port = explode(':', $configArr['setting']['realData']['url'])[2] ?? 9507;
-
 define("WEB_PATH" , $configArr['setting']['server'] ?? 'http://127.0.0.1');
 //实例化swoole对象
 $ws = new swoole_websocket_server("0.0.0.0", $port);
