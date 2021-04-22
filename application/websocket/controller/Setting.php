@@ -42,7 +42,11 @@ class Setting
         $result = Db::name('systemset')->where('type', 'socket')->find();
         $config = json_decode($result['config'], true);
         $inputConfig = ['status' => $post['status'], 'php_path' => $post['php_path']];
-        Db::name('systemset')->where('type', 'socket')->update(['config' => json_encode($inputConfig)]);
+        if (!$result) {
+            Db::name('systemset')->where('type', 'socket')->insert(['type' => 'socket', 'config' => json_encode($inputConfig)]);
+        } else {
+            Db::name('systemset')->where('type', 'socket')->update(['config' => json_encode($inputConfig)]);
+        }
         $status = $config['status'] ?? 0;
         $msg = '修改成功';
         if ($status != $post['status']) {
