@@ -49,7 +49,7 @@ class ChartProcess
     protected static function processSingleChart($chartCache)
     {   
         // 实时数据
-        $realTimeData = array_values(self::getRealTimeData($chartCache));
+        $realTimeData = self::getRealTimeData($chartCache);
         if (!isset($realTimeData[0]) && $chartCache['chartSourceType']) return $chartCache['name'].'无法获取数据';
         $mapData = self::mapping($realTimeData, $chartCache['maps']);
         if (!$mapData) return $chartCache['name'].'数据映射有误！';
