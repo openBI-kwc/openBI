@@ -129,6 +129,9 @@ function configJson()
     $file = file_get_contents(config('static_config_path'));
     //将配置文件转换数组
     $arr = json_decode($file, 1);
+    if (!$arr) {
+        $arr = json_decode(trim($file,chr(239).chr(187).chr(191)),true);
+    }
     //返回配置文件信息及路径
     return ['config' => $arr , 'path' => config('static_config_path')];
 }

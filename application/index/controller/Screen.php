@@ -2767,9 +2767,7 @@ class Screen extends Addons
     //读取json配置文件
     public static function jspath()
     {
-        $jsPath = file_get_contents(config('static_config_path'));
-
-        $jsPath = json_decode($jsPath,1);
+        $jsPath = configJson()['config'];
         $inturl = $jsPath['setting']['server'];
         return $inturl;
     }

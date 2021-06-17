@@ -943,10 +943,8 @@ class Setsystem extends Base
     //读取json文件配置
     public static function jspath()
     {
-        //读取json文件，或得服务器配置
-        $jsPath = file_get_contents(config('static_config_path'));
         //将json文件转为数组
-        $jsPath = json_decode($jsPath, 1);
+        $jsPath = configJson()['config'];
         //获取服务器配置
         $inturl = $jsPath['setting']['server'];
         return $inturl;
