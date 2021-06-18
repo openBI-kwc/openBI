@@ -280,7 +280,7 @@ CREATE TABLE `up_datament` (
   `dataname` varchar(255) DEFAULT NULL COMMENT '数据名称',
   `datatype` varchar(255) DEFAULT NULL COMMENT '数据类型 1是自定义视图，2是API，3是数据库连接，4是excel，5是网络监控',
   `filepath` varchar(255) DEFAULT '' COMMENT '文件路径(API地址)',
-  `returnsql` varchar(255) DEFAULT '' COMMENT 'SQL语句',
+  `returnsql` longtext COMMENT 'SQL语句',
   `data` longtext COMMENT '返回值',
   `remark` text COMMENT '备注',
   `tablename` text COMMENT '数据表',
