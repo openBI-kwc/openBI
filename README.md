@@ -27,7 +27,7 @@
   }
   ```
 
-- 进入到openbi解压目录 找到.example_env 并复制为 .env 
+- 进入到openbi解压目录 找到.example_env 并复制为 .env  （linux执行：cp .example_env   .env）
 
 - 导入openbi.sql
 
