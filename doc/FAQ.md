@@ -2,7 +2,7 @@
 
 - **安装部署后无法登录，提示500错误**
 
-  答：取消禁用php函数 putenv
+  答：取消禁用php函数 putenv（在php.ini的disable_function中将 putenv删除）
 
 - **安装部署后无法登录，提示404错误**
 
