@@ -18,8 +18,13 @@ class Chartdata
         //将数据传入处理方法内
         // if (!$charttype)  return $chartName.'未定义的类型';
         if (!$charttype)  return $data;
-        $chartData = self::$charttype($data);
-        return $chartData ?: $chartName.'数据映射有误！！！';
+        try {
+            $chartData = self::$charttype($data);
+        } catch (\Exception $e) {
+            $chartData = $chartName.'数据映射有误！！！';
+        }
+        return $chartData;
+
     }
 
     /**
