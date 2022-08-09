@@ -14,7 +14,7 @@ class Chartdata
     public static function index(string $type  , array $data, $chartName)
     {
         //声明图表类型变量
-        $charttype = config('chartType.'.$type);
+        $charttype = config('chartType.'.$type) ?: 'commonFunc';
         //将数据传入处理方法内
         // if (!$charttype)  return $chartName.'未定义的类型';
         if (!$charttype)  return $data;
@@ -25,6 +25,12 @@ class Chartdata
         }
         return $chartData;
 
+    }
+
+    // 未配置的统一原样返回
+    public static function commonFunc($data)
+    {
+        return $data;
     }
 
     /**
